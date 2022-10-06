@@ -42,6 +42,7 @@ public class Server {
                         if (firstChar == lastChar) {
                             out.println("OK");
                             massage = nextCity;
+                            System.out.println(nextCity);
                         } else {
                             out.println("NOT OK");
                         }
