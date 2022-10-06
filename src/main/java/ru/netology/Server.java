@@ -28,15 +28,4 @@ public class Server {
         }
     }
 
-    public static ServerSocket create(int[] ports) throws IOException {
-        for (int port : ports) {
-            try {
-                return new ServerSocket(port);
-            } catch (IOException ex) {
-                continue;
-            }
-        }
-        throw new IOException("No free port found");
-    }
-
 }
