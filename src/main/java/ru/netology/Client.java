@@ -12,6 +12,7 @@ public class Client {
         try (Socket clientSocket = new Socket(HOST, PORT);
              PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
              BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
+
             System.out.println(in.readLine());
             out.println("leeds");
             System.out.println(in.readLine());

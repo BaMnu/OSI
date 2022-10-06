@@ -11,7 +11,7 @@ public class Server {
     static String massage = "";
     private static final int PORT = 8989;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         try (ServerSocket server = new ServerSocket(PORT)) {
             System.out.println("Server started");
@@ -20,15 +20,12 @@ public class Server {
 
                 try (Socket clientSocket = server.accept();
                      BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                     PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+                     PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)
                 ) {
 
                     if (massage.equals("")) {
                         out.println("???");
-
                         massage = in.readLine();
-                        System.out.println(massage);
-
                         out.println("OK");
 
                     } else {
@@ -42,7 +39,6 @@ public class Server {
                         if (firstChar == lastChar) {
                             out.println("OK");
                             massage = nextCity;
-                            System.out.println(nextCity);
                         } else {
                             out.println("NOT OK");
                         }
